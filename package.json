@@ -10,7 +10,13 @@
     "@types/node": "^12.12.56",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "axios": "^0.20.0",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.5.2",
+    "jQuery": "^1.7.4",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "typescript": "^3.7.5"
@@ -35,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://emerson.sharepoint.com/sites/autosolpss/EEEC/E-Learning/SiteAssets/ELearn"
 }
