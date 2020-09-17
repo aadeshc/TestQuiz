@@ -101,7 +101,12 @@ Button.btn.btn-success {
     font-size: 21px;
     font-family: verdana;
     margin-left: 40%;
+    background-color : #004b8e !important
     
+}
+
+.ms-core-listMenu-verticalBox, .ms-core-listMenu-horizontalBox {
+    font-size: 16px !important;
 }
 
 button#O365_MainLink_Settings {
