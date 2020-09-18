@@ -105,6 +105,29 @@ Button.btn.btn-success {
     
 }
 
+
+h3 {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: wavy;
+    
+    margin-bottom: 34px;
+    padding: 11px;
+    background-color: #004b8e;
+    color: white;
+}
+
+.ms-core-listMenu-verticalBox > .ms-core-listMenu-item, .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item {
+    width: 230px;
+    display: block;
+    padding: 5px 20px;
+    color: white!important;
+    background-color: green;
+    height: 50px;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
 .ms-core-listMenu-verticalBox, .ms-core-listMenu-horizontalBox {
     font-size: 16px !important;
 }

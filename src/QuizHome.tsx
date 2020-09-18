@@ -26,7 +26,8 @@ export default class QuizHome extends Component<any, any> {
         axios.get("https://emerson.sharepoint.com/sites/autosolpss/EEEC/E-Learning/_api/web/lists/GetByTitle('QuestionList')/items").then((res) => {
             console.log(res.data.value)
             this.setState({
-                QuestionArray: res.data.value
+                QuestionArray: res.data.value,
+                ExamName: res.data.value[0].ExamName
             })
             this.ShowData(res.data.value)
             this.CheckAttempts()
@@ -55,15 +56,26 @@ export default class QuizHome extends Component<any, any> {
                 this.setState({
                     Attempt: response.data.value[0].Attempts,
                     ID: response.data.value[0].ID,
+                    Result: response.data.value[0].Result,
                     Method: "MERGE"
                 }, () => {
 
                     console.log(this.state.Attempt)
-                    if (parseInt(this.state.Attempt) >= 3) {
-                        alert("You have exceeded maximum allowed attempts")
+                    if (this.state.Result == "PASS") {
+                        alert("You Have Already Completed & Passed Training.")
                         var elem = document.getElementById("container")
                         elem.style.pointerEvents = "none";
                         elem.style.opacity = "0.3";
+
+                    } else {
+
+
+                        if (parseInt(this.state.Attempt) >= 3) {
+                            alert("You have exceeded maximum allowed attempts\nPlease Contact EEEC Quality Team")
+                            var elem = document.getElementById("container")
+                            elem.style.pointerEvents = "none";
+                            elem.style.opacity = "0.3";
+                        }
                     }
                 }
                 )
@@ -122,7 +134,7 @@ export default class QuizHome extends Component<any, any> {
             "Result": this.state.Result,
             "Score": this.state.Marks + "%",
             "Attempts": (parseInt(this.state.Attempt) + 1).toString(),
-            "ExamName": "IMSTraining"
+            "ExamName": this.state.ExamName
         };
         axios.post(url, data, configAxios).then(function (req) {
             console.log('Success');
@@ -207,7 +219,9 @@ export default class QuizHome extends Component<any, any> {
                 <div className="alert alert-danger" id={`box-${this.state.isFailBoxVisible ? "show" : "hidden"}`} >
                     <strong>Unsuccessful attempt</strong> You need min 80 % to pass the exam.Please take test again.
 </div> */}
+
                 <form onSubmit={this.handlesubmit}>
+                    <h3> EEEC HSE (ISO 14001 and 45001) Quiz </h3>
                     {this.state.QuestionArray.map(e => {
                         return (
                             <div className="quiz" id="quiz" data-toggle="buttons">
