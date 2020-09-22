@@ -15,7 +15,8 @@ export default class QuizHome extends Component<any, any> {
             Counter: 0,
             isPassBoxVisible: false,
             isFailBoxVisible: false,
-            ID: null
+            ID: null,
+            value: ""
         }
     }
     componentDidMount() {
@@ -178,6 +179,10 @@ export default class QuizHome extends Component<any, any> {
 
 
     handlesubmit = (e) => {
+
+        this.setState({
+            value: "disabled"
+        })
         e.preventDefault();
         var marks = (this.state.Counter / 25) * 100;
 
@@ -237,7 +242,7 @@ export default class QuizHome extends Component<any, any> {
 
                     })}
 
-                    <button type="submit" className="btn btn-success" >Submit</button>
+                    <button type="submit" disabled={this.state.value} className="btn btn-success" >Submit</button>
                 </form>
             </div>
 
